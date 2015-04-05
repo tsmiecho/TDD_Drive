@@ -6,7 +6,7 @@ Earth is represented as a grid.
 
 Following requirements should be fulfilled one at a time using TDD approach.
 
-Req. 01: You are given the initial starting point (x,y) of a ship and the direction (n, s, e, w) it is facing.
+Req. 01: You are given the initial starting point (x, y) of a ship and the direction (n, s, e, w) it is facing.
 
 Req. 02: Implement commands that move the ship forward and backward (f, b).
 
