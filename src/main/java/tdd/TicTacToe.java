@@ -5,17 +5,19 @@ package tdd;
  */
 public class TicTacToe {
 
-    private Character[][] board = new Character[3][3];
+    private char[][] board = new char[3][3];
 
-    public void play(int x, int y) {
+    private char lastPlayer;
+
+    void play(int x, int y) {
         validateAxis(x);
         validateAxis(y);
         validateBox(board[x][y]);
-        board[x][y] = 'X';
+        board[x][y] = nextPlayer();
     }
 
-    private void validateBox(Character character) {
-        if(character != null){
+    private void validateBox(char character) {
+        if(character != '\0' ){
             throw new RuntimeException("Box is already occupied");
         }
     }
@@ -24,5 +26,14 @@ public class TicTacToe {
         if(coordinate < 0 || coordinate > 2){
             throw new RuntimeException("Move out of board");
         }
+    }
+
+    char nextPlayer() {
+        if(lastPlayer == 'X'){
+            lastPlayer = 'Y';
+            return lastPlayer;
+        }
+        lastPlayer = 'X';
+        return lastPlayer;
     }
 }
