@@ -33,7 +33,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void whenMoveToOccupiedPlaceThenRuntimeException() throws Exception {
+    public void whenMoveToOccupiedBoxThenRuntimeException() throws Exception {
         ticTacToe.play(2, 2);
         expectedException.expect(RuntimeException.class);
         ticTacToe.play(2, 2);

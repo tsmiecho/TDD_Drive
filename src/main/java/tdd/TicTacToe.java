@@ -8,15 +8,21 @@ public class TicTacToe {
     private Character[][] board = new Character[3][3];
 
     public void play(int x, int y) {
-        if(x > 3 || y > 3){
-            throw new RuntimeException("Move out of board");
-        }
-        if (x <0 || y < 0){
-            throw new RuntimeException("Move out of board");
-        }
-        if(board[x][y] != null){
-            throw new RuntimeException("Place is already occupied");
-        }
+        validateAxis(x);
+        validateAxis(y);
+        validateBox(board[x][y]);
         board[x][y] = 'X';
+    }
+
+    private void validateBox(Character character) {
+        if(character != null){
+            throw new RuntimeException("Box is already occupied");
+        }
+    }
+
+    private void validateAxis(int coordinate) {
+        if(coordinate < 0 || coordinate > 2){
+            throw new RuntimeException("Move out of board");
+        }
     }
 }
