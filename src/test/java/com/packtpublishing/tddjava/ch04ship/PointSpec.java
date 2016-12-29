@@ -1,14 +1,16 @@
 package com.packtpublishing.tddjava.ch04ship;
 
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 @Test
 public class PointSpec {
 
-    private Point point;
     private final int x = 12;
     private final int y = 21;
+    private Point point;
 
     @BeforeMethod
     public void beforeTest() {

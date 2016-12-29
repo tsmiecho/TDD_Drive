@@ -1,11 +1,15 @@
 package com.packtpublishing.tddjava.ch04ship;
 
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotSame;
+import static org.testng.Assert.assertTrue;
 
 @Test
 public class LocationSpec {
@@ -133,28 +137,32 @@ public class LocationSpec {
 
     public void givenDirectionEAndXEqualsMaxXWhenForwardThen1() {
         location.setDirection(Direction.EAST);
-        location.getPoint().setX(max.getX());
+        location.getPoint()
+                .setX(max.getX());
         location.forward(max, obstacles);
         assertEquals(location.getX(), 1);
     }
 
     public void givenDirectionWAndXEquals1WhenForwardThenMaxX() {
         location.setDirection(Direction.WEST);
-        location.getPoint().setX(1);
+        location.getPoint()
+                .setX(1);
         location.forward(max, obstacles);
         assertEquals(location.getX(), max.getX());
     }
 
     public void givenDirectionNAndYEquals1WhenForwardThenMaxY() {
         location.setDirection(Direction.NORTH);
-        location.getPoint().setY(1);
+        location.getPoint()
+                .setY(1);
         location.forward(max, obstacles);
         assertEquals(location.getY(), max.getY());
     }
 
     public void givenDirectionSAndYEqualsMaxYWhenForwardThen1() {
         location.setDirection(Direction.SOUTH);
-        location.getPoint().setY(max.getY());
+        location.getPoint()
+                .setY(max.getY());
         location.forward(max, obstacles);
         assertEquals(location.getY(), 1);
     }

@@ -1,17 +1,18 @@
 package com.packtpublishing.tddjava.ch04ship;
 
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 @Test
 public class PlanetSpec {
 
-    private Planet planet;
     private final Point max = new Point(50, 50);
+    private Planet planet;
     private List<Point> obstacles;
 
     @BeforeMethod

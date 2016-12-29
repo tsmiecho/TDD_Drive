@@ -6,7 +6,15 @@ import java.util.List;
 public class Location {
 
     private static final int FORWARD = 1;
+
     private static final int BACKWARD = -1;
+    private Point point;
+    private Direction direction;
+
+    public Location(Point point, Direction direction) {
+        this.point = point;
+        this.direction = direction;
+    }
 
     public int getX() {
         return point.getX();
@@ -16,30 +24,26 @@ public class Location {
         return point.getY();
     }
 
-    private Point point;
     public Point getPoint() {
         return point;
     }
 
-    private Direction direction;
     public Direction getDirection() {
         return this.direction;
     }
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
 
-    public Location(Point point, Direction direction) {
-        this.point = point;
+    public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
     public boolean forward() {
         return move(FORWARD, new Point(100, 100), new ArrayList<>());
     }
+
     public boolean forward(Point max) {
         return move(FORWARD, max, new ArrayList<>());
     }
+
     public boolean forward(Point max, List<Point> obstacles) {
         return move(FORWARD, max, obstacles);
     }
@@ -47,9 +51,11 @@ public class Location {
     public boolean backward() {
         return move(BACKWARD, new Point(100, 100), new ArrayList<>());
     }
+
     public boolean backward(Point max) {
         return move(BACKWARD, max, new ArrayList<>());
     }
+
     public boolean backward(Point max, List<Point> obstacles) {
         return move(BACKWARD, max, obstacles);
     }
@@ -57,7 +63,7 @@ public class Location {
     private boolean move(int fw, Point max, List<Point> obstacles) {
         int x = point.getX();
         int y = point.getY();
-        switch(getDirection()) {
+        switch (getDirection()) {
             case NORTH:
                 y = wrap(getY() - fw, max.getY());
                 break;
@@ -113,12 +119,22 @@ public class Location {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Location location = (Location) o;
-        if (getX() != location.getX()) return false;
-        if (getY() != location.getY()) return false;
-        if (direction != location.direction) return false;
+        if (getX() != location.getX()) {
+            return false;
+        }
+        if (getY() != location.getY()) {
+            return false;
+        }
+        if (direction != location.direction) {
+            return false;
+        }
         return true;
     }
 }
